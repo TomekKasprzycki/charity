@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
 
-    <link rel="stylesheet" href="<c:url value="resources/css/style.css"/>"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style/css"/>
 </head>
 <body>
 <header class="header--main-page">
@@ -93,9 +93,9 @@
         <h2>O nas</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vitae animi rem pariatur incidunt libero
             optio esse quisquam illo omnis.</p>
-        <img src="images/signature.svg" class="about-us--text-signature" alt="Signature"/>
+        <img src="${pageContext.request.contextPath}/images/signature.svg" class="about-us--text-signature" alt="Signature"/>
     </div>
-    <div class="about-us--image"><img src="<c:url value="resources/images/about-us.jpg"/>" alt="People in circle"/>
+    <div class="about-us--image"><img src="${pageContext.request.contextPath}/images/about-us.jpg"/>" alt="People in circle"/>
     </div>
 </section>
 
@@ -155,11 +155,11 @@
         <div class="bottom-line--icons">
             <a href="#" class="btn btn--small"><img src="images/icon-facebook.svg"/></a> <a href="#"
                                                                                             class="btn btn--small"><img
-                src="images/icon-instagram.svg"/></a>
+                src="${pageContext.request.contextPath}/images/icon-instagram.svg"/></a>
         </div>
     </div>
 </footer>
 
-<script src="<c:url value="resources/js/app.js"/>"></script>
+<script src="${pageContext.request.contextPath}/js/app.js"></script>
 </body>
 </html>
