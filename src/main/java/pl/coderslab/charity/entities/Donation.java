@@ -15,7 +15,8 @@ public class Donation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     Integer quantity;
-    @OneToMany(mappedBy = "donation")
+    @ManyToMany
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
     List<Category> categories;
     @ManyToOne
     @JoinColumn(name = "institution_id", referencedColumnName = "id")

@@ -15,4 +15,11 @@ public class DonationService {
 
     public List<Donation> getDonationsByInstitution(Long id){return donationRepository.findDonationByInstitutionId(id); }
 
+    public Donation getDonationById(Long donationId) {
+        return donationRepository.findDonationById(donationId);
+    }
+
+    public List<Donation> getDonationsByListId(List<Long> donations_id) {
+        return donationRepository.findAllById(donations_id);
+    }
 }

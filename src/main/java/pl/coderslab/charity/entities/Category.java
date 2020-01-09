@@ -3,6 +3,7 @@ package pl.coderslab.charity.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -12,9 +13,9 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     String name;
-    @ManyToOne
-    @JoinColumn(name = "donation_id", referencedColumnName = "id")
-    Donation donation;
+    @ManyToMany(mappedBy = "categories")
+    //@JoinColumn(name = "donation_id", referencedColumnName = "id")
+    List<Donation> donations;
 
 
 }
