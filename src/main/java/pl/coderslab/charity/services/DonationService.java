@@ -1,6 +1,5 @@
 package pl.coderslab.charity.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.coderslab.charity.entities.Donation;
 import pl.coderslab.charity.repositories.DonationRepository;
@@ -10,8 +9,11 @@ import java.util.List;
 @Service
 public class DonationService {
 
-    @Autowired
-    DonationRepository donationRepository;
+    private DonationRepository donationRepository;
+
+    public DonationService(DonationRepository donationRepository){
+        this.donationRepository=donationRepository;
+    }
 
     public List<Donation> getDonationsByInstitution(Long id){return donationRepository.findDonationByInstitutionId(id); }
 
@@ -21,5 +23,9 @@ public class DonationService {
 
     public List<Donation> getDonationsByListId(List<Long> donations_id) {
         return donationRepository.findAllById(donations_id);
+    }
+
+    public long getNumberOfBags() {
+        return donationRepository.countAllDonations();
     }
 }

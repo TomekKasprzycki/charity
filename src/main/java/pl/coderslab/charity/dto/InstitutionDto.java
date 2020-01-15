@@ -1,15 +1,14 @@
 package pl.coderslab.charity.dto;
 
 import lombok.Data;
-
-import java.util.List;
+import org.springframework.stereotype.Service;
 
 @Data
+@Service
 public class InstitutionDto {
 
     Long id;
     String name;
     String description;
-    List<Long> donations_id;
 
 }

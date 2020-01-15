@@ -15,8 +15,8 @@ public class CategoryService {
         this.categoryRepository=categoryRepository;
     }
 
-    public List<Category> getCategoriesByDonationId(Long donation_id){
-        return categoryRepository.findAllByDonationId(donation_id);
+    public List<Category> getAllCategories(){
+        return categoryRepository.findAll();
     }
 
 }

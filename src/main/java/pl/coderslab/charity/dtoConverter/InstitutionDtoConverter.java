@@ -26,7 +26,7 @@ public class InstitutionDtoConverter {
         institution.setId(institutionDto.getId());
         institution.setName(institutionDto.getName());
         institution.setDescription(institutionDto.getDescription());
-        institution.setDonations(donationService.getDonationsByListId(institutionDto.getDonations_id()));
+//        institution.setDonations(donationService.getDonationsByListId(institutionDto.getDonations_id()));
 
         return institution;
     }
@@ -38,11 +38,11 @@ public class InstitutionDtoConverter {
         institutionDto.setId(institution.getId());
         institutionDto.setName(institution.getName());
         institutionDto.setDescription(institution.getDescription());
-            List<Long> donations_id = new ArrayList<>();
-            for(Donation donation : institution.getDonations()){
-                donations_id.add(donation.getId());
-            }
-        institutionDto.setDonations_id(donations_id);
+//            List<Long> donations_id = new ArrayList<>();
+//            for(Donation donation : institution.getDonations()){
+//                donations_id.add(donation.getId());
+//            }
+//        institutionDto.setDonations_id(donations_id);
 
         return institutionDto;
     }

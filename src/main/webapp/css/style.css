@@ -649,7 +649,7 @@ form .form-group--checkbox .description .title {
 form .form-group--checkbox .description .subtitle {
   font-family: 'Merriweather', serif;
   font-weight: 300;
-  font-style: light;
+  /*font-style: light;*/
   font-size: 1.2rem;
 }
 
@@ -1228,7 +1228,7 @@ header nav ul li:last-of-type {
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
-  -ms-flex-pack: distribute;
+  /*-ms-flex-pack: distribute;*/
       justify-content: space-around;
 }
 
@@ -1475,7 +1475,7 @@ header nav ul li:last-of-type {
 .help--slides-items .col .subtitle {
   font-family: 'Merriweather', serif;
   font-weight: 300;
-  font-style: light;
+  /*font-style: light;*/
   font-size: 1.2rem;
 }
 

@@ -12,8 +12,11 @@ import java.util.List;
 @Service
 public class CategoryDtoConverter {
 
-    @Autowired
     private DonationService donationService;
+
+    public CategoryDtoConverter(DonationService donationService){
+        this.donationService=donationService;
+    }
 
     public Category convertFromDto(CategoryDto categoryDto){
 
@@ -21,7 +24,6 @@ public class CategoryDtoConverter {
 
         category.setId(categoryDto.getId());
         category.setName(categoryDto.getName());
-        //category.setDonations(donationService.getDonationById(categoryDto.getDonationId()));
 
         return category;
     }
@@ -32,7 +34,6 @@ public class CategoryDtoConverter {
 
         categoryDto.setId(category.getId());
         categoryDto.setName(category.getName());
-        //categoryDto.setDonationId(category.getDonation().getId());
 
         return categoryDto;
     }
