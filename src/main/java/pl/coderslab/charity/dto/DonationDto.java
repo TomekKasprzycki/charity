@@ -13,7 +13,7 @@ public class DonationDto {
 
     Long id;
     Integer quantity;
-    List<Long> categories_id;
+    List<Long> categoriesId;
     Long institutionId;
     String city;
     String street;

@@ -2,7 +2,9 @@ package pl.coderslab.charity.dtoConverter;
 
 import org.springframework.stereotype.Service;
 import pl.coderslab.charity.dto.DonationDto;
+import pl.coderslab.charity.entities.Category;
 import pl.coderslab.charity.entities.Donation;
+import pl.coderslab.charity.services.CategoryService;
 import pl.coderslab.charity.services.InstitutionService;
 
 import java.util.ArrayList;
@@ -12,9 +14,14 @@ import java.util.List;
 public class DonationDtoConverter {
 
     private InstitutionService institutionService;
+    private CategoryService categoryService;
 
-    public DonationDtoConverter(InstitutionService institutionService){
+    public DonationDtoConverter(
+            InstitutionService institutionService,
+            CategoryService categoryService
+    ){
         this.institutionService=institutionService;
+        this.categoryService = categoryService;
     }
 
     public Donation convertFromDto(DonationDto donationDto){
@@ -23,7 +30,7 @@ public class DonationDtoConverter {
 
         donation.setId(donationDto.getId());
         donation.setQuantity(donationDto.getQuantity());
-        //donation.setCategories();
+        donation.setCategories(categoryService.getCategoryById(donationDto.getCategoriesId()));
         donation.setCity(donationDto.getCity());
         donation.setStreet(donationDto.getStreet());
         donation.setZipCode(donationDto.getZipCode());
@@ -41,7 +48,11 @@ public class DonationDtoConverter {
 
         donationDto.setId(donation.getId());
         donationDto.setQuantity(donation.getQuantity());
-        //donationDto.setCategories();
+        List<Long> categoriesId = new ArrayList<>();
+            for(Category category : donation.getCategories()) {
+                categoriesId.add(category.getId());
+            }
+        donationDto.setCategoriesId(categoriesId);
         donationDto.setCity(donation.getCity());
         donationDto.setStreet(donation.getStreet());
         donationDto.setZipCode(donation.getZipCode());

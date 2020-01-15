@@ -13,6 +13,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     String name;
+    String description;
     @ManyToMany(mappedBy = "categories")
     //@JoinColumn(name = "donation_id", referencedColumnName = "id")
     List<Donation> donations;

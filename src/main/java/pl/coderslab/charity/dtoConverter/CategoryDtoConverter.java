@@ -24,6 +24,7 @@ public class CategoryDtoConverter {
 
         category.setId(categoryDto.getId());
         category.setName(categoryDto.getName());
+        category.setDescription(categoryDto.getDescription());
 
         return category;
     }
@@ -34,6 +35,7 @@ public class CategoryDtoConverter {
 
         categoryDto.setId(category.getId());
         categoryDto.setName(category.getName());
+        categoryDto.setDescription(category.getDescription());
 
         return categoryDto;
     }
