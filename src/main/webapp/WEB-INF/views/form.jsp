@@ -64,7 +64,7 @@
             <div class="form-group form-group--inline">
               <label>
                 Liczba 60l worków:
-                <input type="number" name="bags" step="1" min="1" />
+                <input type="number" name="quantity" step="1" min="1" />
               </label>
             </div>
 
@@ -78,33 +78,18 @@
           <div data-step="3">
             <h3>Wybierz organizacje, której chcesz pomóc:</h3>
 
-            <div class="form-group form-group--checkbox">
-              <label>
-                <input type="radio" name="organization" value="old" />
-                <span class="checkbox radio"></span>
-                <span class="description">
-                  <div class="title">Fundacja “Bez domu”</div>
-                  <div class="subtitle">
-                    Cel i misja: Pomoc dla osób nie posiadających miejsca
-                    zamieszkania
+              <c:forEach var="institutionDto" items="${institutionDtoList}">
+                  <div class="form-group form-group--checkbox">
+                      <label>
+                          <input type="radio" name="institutionDto" value="${institutionDto.id}" />
+                          <span class="checkbox radio"></span>
+                          <span class="description">
+                            <div class="title">${institutionDto.name}</div>
+                            <div class="subtitle">Cel i misja: ${institutionDto.description}</div>
+                          </span>
+                      </label>
                   </div>
-                </span>
-              </label>
-            </div>
-
-            <div class="form-group form-group--checkbox">
-              <label>
-                <input type="radio" name="organization" value="old" />
-                <span class="checkbox radio"></span>
-                <span class="description">
-                  <div class="title">Fundacja “Dla dzieci"</div>
-                  <div class="subtitle">
-                    Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji
-                    życiowej.
-                  </div>
-                </span>
-              </label>
-            </div>
+              </c:forEach>
 
             <div class="form-group form-group--buttons">
               <button type="button" class="btn prev-step">Wstecz</button>
@@ -120,7 +105,7 @@
               <div class="form-section--column">
                 <h4>Adres odbioru</h4>
                 <div class="form-group form-group--inline">
-                  <label> Ulica <input type="text" name="address" /> </label>
+                  <label> Ulica <input type="text" name="street" /> </label>
                 </div>
 
                 <div class="form-group form-group--inline">
@@ -129,13 +114,13 @@
 
                 <div class="form-group form-group--inline">
                   <label>
-                    Kod pocztowy <input type="text" name="postcode" />
+                    Kod pocztowy <input type="text" name="zipCode" />
                   </label>
                 </div>
 
                 <div class="form-group form-group--inline">
                   <label>
-                    Numer telefonu <input type="phone" name="phone" />
+                    Numer telefonu <input type="text" name="phoneNumber" />
                   </label>
                 </div>
               </div>
@@ -143,17 +128,17 @@
               <div class="form-section--column">
                 <h4>Termin odbioru</h4>
                 <div class="form-group form-group--inline">
-                  <label> Data <input type="date" name="data" /> </label>
+                  <label> Data <input type="date" name="pickUpDate" /> </label>
                 </div>
 
                 <div class="form-group form-group--inline">
-                  <label> Godzina <input type="time" name="time" /> </label>
+                  <label> Godzina <input type="time" name="pickUpTime" /> </label>
                 </div>
 
                 <div class="form-group form-group--inline">
                   <label>
                     Uwagi dla kuriera
-                    <textarea name="more_info" rows="5"></textarea>
+                    <textarea name="pickUpComment" rows="5"></textarea>
                   </label>
                 </div>
               </div>
@@ -174,16 +159,12 @@
                 <ul>
                   <li>
                     <span class="icon icon-bag"></span>
-                    <span class="summary--text"
-                      >4 worki ubrań w dobrym stanie dla dzieci</span
-                    >
+                    <span class="summary--text">${donationDto.quantity} worki ubrań w dobrym stanie dla dzieci</span>
                   </li>
 
                   <li>
                     <span class="icon icon-hand"></span>
-                    <span class="summary--text"
-                      >Dla fundacji "Mam marzenie" w Warszawie</span
-                    >
+                    <span class="summary--text">Dla fundacji "Mam marzenie" w Warszawie</span>
                   </li>
                 </ul>
               </div>
@@ -192,19 +173,19 @@
                 <div class="form-section--column">
                   <h4>Adres odbioru:</h4>
                   <ul>
-                    <li>Prosta 51</li>
-                    <li>Warszawa</li>
-                    <li>99-098</li>
-                    <li>123 456 789</li>
+                    <li>${donationDto.street}</li>
+                    <li>${donationDto.city}</li>
+                    <li>${donationDto.zipCode}</li>
+                    <li>${donationDto.phoneNumber}</li>
                   </ul>
                 </div>
 
                 <div class="form-section--column">
                   <h4>Termin odbioru:</h4>
                   <ul>
-                    <li>13/12/2018</li>
-                    <li>15:40</li>
-                    <li>Brak uwag</li>
+                    <li>${donationDto.pickUpDate}</li>
+                    <li>${donationDto.pickUpTime}</li>
+                    <li>${donationDto.pickUpComment}</li>
                   </ul>
                 </div>
               </div>

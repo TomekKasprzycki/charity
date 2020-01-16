@@ -30,4 +30,8 @@ public class InstitutionService {
     public List<Long> getIdListOfSupportedInstitutions(){
         return institutionRepository.findIdListOfSupportedInstitutions();
     }
+
+    public List<Institution> getAll() {
+        return institutionRepository.findAll();
+    }
 }

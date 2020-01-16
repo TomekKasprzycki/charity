@@ -84,8 +84,18 @@
             Możesz sprawdzić czym się zajmują.</p>
 
         <ul class="help--slides-items">
-            <c:forEach var="supportedInstitution" items="${supportedInstitutions}">
-                <li>
+            <c:forEach var="supportedInstitution" items="${supportedInstitutions}" begin="0" step="2">
+                <li class="slogan--item">
+                    <div class="col">
+                        <div class="title">${supportedInstitution.name}</div>
+                        <div class="subtitle">Cel i misja: ${supportedInstitution.description}.</div>
+                    </div>
+                </li>
+            </c:forEach>
+        </ul>
+        <ul class="help--slides-items">
+            <c:forEach var="supportedInstitution" items="${supportedInstitutions}" begin="1" step="2">
+                <li class="slogan--item">
                     <div class="col">
                         <div class="title">${supportedInstitution.name}</div>
                         <div class="subtitle">Cel i misja: ${supportedInstitution.description}.</div>

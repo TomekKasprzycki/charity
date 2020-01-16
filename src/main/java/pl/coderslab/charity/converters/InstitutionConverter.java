@@ -14,4 +14,5 @@ public class InstitutionConverter implements Converter<String, Institution> {
     public Institution convert(String s) {
         return institutionService.getInstitutionById(Long.parseLong(s));
     }
+
 }

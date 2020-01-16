@@ -4,10 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.converters.InstitutionConverter;
-import pl.coderslab.charity.dto.DonationDto;
 import pl.coderslab.charity.dto.InstitutionDto;
 import pl.coderslab.charity.dtoConverter.InstitutionDtoConverter;
-import pl.coderslab.charity.entities.Institution;
 import pl.coderslab.charity.services.DonationService;
 import pl.coderslab.charity.services.InstitutionService;
 
@@ -33,9 +31,8 @@ public class HomeController {
     public String homeAction(Model model){
 
         long numberOfBags = donationService.getNumberOfBags();
-        List<Long> idList = institutionService.getIdListOfSupportedInstitutions();
-        List<InstitutionDto> supportedInstitutions = institutionDtoConverter.convertToDto(institutionService.getSupportedInstitutions(idList));
-        long numberOfSupportedInstitutions = supportedInstitutions.size();
+        long numberOfSupportedInstitutions = institutionService.getIdListOfSupportedInstitutions().size();
+        List<InstitutionDto> supportedInstitutions = institutionDtoConverter.convertToDto(institutionService.getAll());
         model.addAttribute("allBags", numberOfBags);
         model.addAttribute("numberOfSupportedInstitutions", numberOfSupportedInstitutions);
         model.addAttribute("supportedInstitutions", supportedInstitutions);

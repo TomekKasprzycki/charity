@@ -15,8 +15,6 @@ public class Category {
     String name;
     String description;
     @ManyToMany(mappedBy = "categories")
-    //@JoinColumn(name = "donation_id", referencedColumnName = "id")
     List<Donation> donations;
-
 
 }

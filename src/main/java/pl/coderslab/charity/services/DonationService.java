@@ -28,4 +28,8 @@ public class DonationService {
     public long getNumberOfBags() {
         return donationRepository.countAllDonations();
     }
+
+    public Donation saveDonation(Donation donation) {
+        return donationRepository.save(donation);
+    }
 }

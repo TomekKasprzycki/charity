@@ -13,11 +13,11 @@ import java.util.List;
 @Service
 public class InstitutionDtoConverter {
 
-    private DonationService donationService;
-
-    public InstitutionDtoConverter(DonationService donationService){
-        this.donationService = donationService;
-    }
+//    private DonationService donationService;
+//
+//    public InstitutionDtoConverter(DonationService donationService){
+//        this.donationService = donationService;
+//    }
 
     public Institution convertFromDto(InstitutionDto institutionDto){
 

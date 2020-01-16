@@ -21,5 +21,6 @@ public class DonationDto {
     LocalDate pickUpDate;
     LocalTime pickUpTime;
     String pickUpComment;
+    String phoneNumber;
 
 }

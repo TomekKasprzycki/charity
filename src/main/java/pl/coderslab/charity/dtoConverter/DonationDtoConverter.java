@@ -30,7 +30,11 @@ public class DonationDtoConverter {
 
         donation.setId(donationDto.getId());
         donation.setQuantity(donationDto.getQuantity());
-        donation.setCategories(categoryService.getCategoryById(donationDto.getCategoriesId()));
+            List<Category> categories = new ArrayList<>();
+            for(Long id : donationDto.getCategoriesId()){
+                categories.add(categoryService.getCategoryById(id));
+            }
+        donation.setCategories(categories);
         donation.setCity(donationDto.getCity());
         donation.setStreet(donationDto.getStreet());
         donation.setZipCode(donationDto.getZipCode());
@@ -38,6 +42,7 @@ public class DonationDtoConverter {
         donation.setPickUpComment(donationDto.getPickUpComment());
         donation.setPickUpDate(donationDto.getPickUpDate());
         donation.setPickUpTime(donationDto.getPickUpTime());
+        donation.setPhoneNumber(donationDto.getPhoneNumber());
 
         return donation;
     }
@@ -60,6 +65,7 @@ public class DonationDtoConverter {
         donationDto.setPickUpComment(donation.getPickUpComment());
         donationDto.setPickUpDate(donation.getPickUpDate());
         donationDto.setPickUpTime(donation.getPickUpTime());
+        donationDto.setPhoneNumber(donation.getPhoneNumber());
         return donationDto;
     }
 
