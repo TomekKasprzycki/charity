@@ -3,7 +3,6 @@ package pl.coderslab.charity.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.coderslab.charity.converters.InstitutionConverter;
 import pl.coderslab.charity.dto.InstitutionDto;
 import pl.coderslab.charity.dtoConverter.InstitutionDtoConverter;
 import pl.coderslab.charity.services.DonationService;

@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%--<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>--%>
 <!DOCTYPE html>
 <html lang="pl">
   <head>
@@ -37,7 +38,8 @@
       <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
-        <form action="form-confirmation.jsp" method="post">
+        <form action="${pageContext.request.contextPath}/donate/" method="post">
+<%--            <form:form method="post" modelAttribute="donationDto">--%>
           <!-- STEP 1: class .active is switching steps -->
           <div data-step="1" class="active">
             <h3>Zaznacz co chcesz oddać:</h3>
@@ -45,7 +47,7 @@
               <c:forEach items="${categoryDtoList}" var="categoryDto">
                 <div class="form-group form-group--checkbox">
                   <label>
-                    <input type="checkbox" name="categoryDto" value="${categoryDto.name}"/>
+                    <input type="checkbox" name="categoryDto" value="${categoryDto.id}"/>
                     <span class="checkbox"></span>
                     <span class="description">${categoryDto.description}</span>
                   </label>

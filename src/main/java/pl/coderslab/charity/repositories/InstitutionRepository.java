@@ -17,11 +17,13 @@ public interface InstitutionRepository extends JpaRepository<Institution, Long> 
             "where donation.institution_id=:donation_id", nativeQuery = true)
     Institution findInstitutionByDonationId(@Param("donation_id") Long donation_id);
 
-    @Query(value = "SELECT donation.institution_id FROM donation", nativeQuery = true)
+    @Query(value = "SELECT DISTINCT donation.institution_id FROM donation", nativeQuery = true)
     List<Long> findIdListOfSupportedInstitutions();
 
     @Query("SELECT i FROM Institution i WHERE i.id IN (:idList)")
     List<Institution> findSupportedInstitutions(@Param("idList") List<Long> idList);
 
     Institution findInstitutionById(Long id);
+
+
 }

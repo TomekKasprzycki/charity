@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-  <%@include file="WEB-INF/views/header.jsp"%>
+  <%@include file="/WEB-INF/views/header.jsp"%>
 
     <section class="login-page">
       <h2>Załóż konto</h2>
@@ -34,6 +34,6 @@
       </form>
     </section>
 
-  <%@include file="WEB-INF/views/footer.jsp"%>
+  <%@include file="/WEB-INF/views/footer.jsp"%>
   </body>
 </html>

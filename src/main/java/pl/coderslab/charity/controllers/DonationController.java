@@ -1,20 +1,16 @@
 package pl.coderslab.charity.controllers;
 
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import pl.coderslab.charity.converters.InstitutionConverter;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.dto.CategoryDto;
 import pl.coderslab.charity.dto.DonationDto;
 import pl.coderslab.charity.dto.InstitutionDto;
 import pl.coderslab.charity.dtoConverter.CategoryDtoConverter;
 import pl.coderslab.charity.dtoConverter.DonationDtoConverter;
 import pl.coderslab.charity.dtoConverter.InstitutionDtoConverter;
-import pl.coderslab.charity.entities.Category;
 import pl.coderslab.charity.entities.Donation;
-import pl.coderslab.charity.entities.Institution;
 import pl.coderslab.charity.services.CategoryService;
 import pl.coderslab.charity.services.DonationService;
 import pl.coderslab.charity.services.InstitutionService;
@@ -71,13 +67,11 @@ public class DonationController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/")
-    public String saveDonationForm(@RequestBody DonationDto donationDto, @RequestBody List<Category> categoryDtoList, @RequestBody Institution institution){
+    public String saveDonationForm(DonationDto donationDto){
         Donation donation = donationDtoConverter.convertFromDto(donationDto);
-        donation.setCategories(categoryDtoList);
-        donation.setInstitution(institution);
 
-        Donation savedDonation = donationService.saveDonation(donation);
-        return "form";
+        donationService.saveDonation(donation);
+        return "form-confirmation";
     }
 
 }

@@ -29,7 +29,11 @@ public class DonationService {
         return donationRepository.countAllDonations();
     }
 
-    public Donation saveDonation(Donation donation) {
-        return donationRepository.save(donation);
+    public void saveDonation(Donation donation) {
+        donationRepository.save(donation);
+    }
+
+    public Long getLastId() {
+        return donationRepository.findLastId();
     }
 }

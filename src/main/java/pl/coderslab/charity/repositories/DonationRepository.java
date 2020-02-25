@@ -13,4 +13,7 @@ public interface DonationRepository extends JpaRepository<Donation, Long> {
 
     @Query("select count(d) from Donation d")
     long countAllDonations();
+
+    @Query(value = "SELECT max(id) as maxelement FROM donation", nativeQuery = true)
+    Long findLastId();
 }

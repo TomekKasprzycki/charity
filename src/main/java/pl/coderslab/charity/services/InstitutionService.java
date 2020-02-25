@@ -34,4 +34,5 @@ public class InstitutionService {
     public List<Institution> getAll() {
         return institutionRepository.findAll();
     }
+
 }

@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import pl.coderslab.charity.converters.CategoryConverter;
-import pl.coderslab.charity.converters.InstitutionConverter;
+import pl.coderslab.charity.converters.CategoryDtoFromStringConverter;
+import pl.coderslab.charity.converters.InstitutionDtoFromStringConverter;
 
 @Configuration
 @ComponentScan(basePackages = "pl.coderslab.charity")
@@ -23,9 +23,9 @@ public class AppConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public InstitutionConverter getInstitutionConverter(){return new InstitutionConverter();}
+    public InstitutionDtoFromStringConverter getInstitutionConverter(){return new InstitutionDtoFromStringConverter();}
 
     @Bean
-    public CategoryConverter getCategoryConverter(){return new CategoryConverter();}
+    public CategoryDtoFromStringConverter getCategoryConverter(){return new CategoryDtoFromStringConverter();}
 
 }
